@@ -7,4 +7,4 @@
     Dado que estou no site da qazando
     Quando eu preencho meu e-mail
     E clico em ganhar cupom
-    Entao eu vejo o codigo de desconto
+    Então eu vejo o codigo de desconto
