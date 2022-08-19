@@ -1,24 +1,19 @@
 package steps;
-import java.time.Duration;
-import java.util.Arrays;
-import java.util.Dictionary;
-import java.util.Hashtable;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.HomePage;
 import runner.Run;
 
-public class CalculatorStep extends Run {
+import java.util.Arrays;
+import java.util.List;
+
+import support.Utils;
+
+public class CalculatorStep extends Utils{
 
     String site = new String("https://www.calculadora-online.xyz/");
     HomePage home = new HomePage(driver);
@@ -31,17 +26,24 @@ public class CalculatorStep extends Run {
     public void que_eu_estou_logado_no_site_da_calculadora() throws InterruptedException {
         home.acessarAplicacao();
     }
+
     @Quando("eu clico em {int}")
-    public void eu_clico_na_caixa_de_escrever_digitando(Integer input) {
+    public void eu_clico_na_caixa_de_escrever_digitando(Integer input) throws InterruptedException {
+        /*
+        Scroll na pagina:
+            home.scrollPage("0","1000");
+
+         */
         String input_str = Integer.toString(input);
         int index;
-        for(int i=0 ; i < input_str.length(); i++){
+        for (int i = 0; i < input_str.length(); i++) {
             index = Character.getNumericValue(input_str.charAt(i));
+            waiForElementTobeClickable(By.id(mapeamento.get(index)),10);
             driver.findElement(By.id(mapeamento.get(index))).click();
 
         }
-
     }
+
     @Quando("eu clico em +")
     public void eu_clico_em() {
         driver.findElement(By.id("addition")).click();
