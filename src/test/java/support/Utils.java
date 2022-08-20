@@ -10,8 +10,8 @@ import java.time.Duration;
 
 public class Utils extends Run {
 
-    public void waiForElementTobeClickable(By element , int tempo){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(tempo));
+    public static void waiForElementTobeClickable(By element, int tempo){
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(tempo));
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 }

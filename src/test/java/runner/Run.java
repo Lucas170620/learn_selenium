@@ -12,15 +12,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 @CucumberOptions(
         plugin = {"json:target/reports/cucumberReport.json","html:target/reports/report.html"},
         features = "src/test/resources/features",
-        tags = "~ignore",
+        tags = ("@calculadora"),
         glue = {"steps"}
 )
-public class Run{
-    public static WebDriver driver;
-    @BeforeClass
-    public static void start(){
-        driver = new ChromeDriver();
-    }
+public class Run extends RunTests{
     @AfterClass
     public static void stop(){
         driver.close();

@@ -1,4 +1,5 @@
 # language: pt
+  @Qazando
   Funcionalidade: Receber desconto da qazando
     Eu como usuario da quazando
     quero receber um cumpom de desconto

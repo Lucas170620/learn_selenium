@@ -12,9 +12,9 @@ public class DescontoStep extends Run {
     String site = new String("https://qazando.com.br/");
     @Dado("^que estou no site da qazando$")
     public void que_estou_no_site_da_qazando() throws InterruptedException {
-        driver.get(site);
+        getDriver().get(site);
         TimeUnit.SECONDS.sleep(5);
-        driver.findElement(By.xpath("/html/body/div[11]/div[1]/form/div[5]/span/span/p/span")).click();
+        getDriver().findElement(By.xpath("/html/body/div[11]/div[1]/form/div[5]/span/span/p/span")).click();
     }
 
     @Quando("^eu preencho meu e-mail$")
