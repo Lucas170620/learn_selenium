@@ -5,23 +5,13 @@ import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import pages.HomePage;
 import runner.Run;
-
-import java.util.Arrays;
-import java.util.List;
-
 import runner.RunTests;
-import support.Utils;
 
 public class CalculatorStep extends Run {
-
-    String site = new String("https://www.calculadora-online.xyz/");
     HomePage home = new HomePage();
 
-    Integer valor_um , valor_dois, resultado;
-    List<String> mapeamento = Arrays.asList("zero","un","deux","trois","quatre","cinq","six","sept","huit","neuf");
 
 
     @Dado("que eu estou logado no site da calculadora")
@@ -37,14 +27,7 @@ public class CalculatorStep extends Run {
             home.scrollPage("0","1000");
 
          */
-        String input_str = Integer.toString(input);
-        int index;
-        for (int i = 0; i < input_str.length(); i++) {
-            index = Character.getNumericValue(input_str.charAt(i));
-            Utils.waiForElementTobeClickable(By.id(mapeamento.get(index)),10);
-            getDriver().findElement(By.id(mapeamento.get(index))).click();
-
-        }
+        home.clicarNoBotaoCalculadora(input);
     }
 
     @Quando("eu clico na operacao {str}")
@@ -68,11 +51,11 @@ public class CalculatorStep extends Run {
     }
     @Quando("aperto enter")
     public void aperto_enter() {
-        getDriver().findElement(By.id("egale")).click();
+        home.clickButtonEnter();
     }
     @Então("aparece o resultado na tela {str}")
     public void aparece_o_resultado_na_tela(String resultado) {
-        String resultado_tela = getDriver().findElement(By.id("total")).getText();
+        String resultado_tela = home.getResult();
         String resultado_esperado = resultado;
         Assert.assertEquals(resultado_esperado,resultado_tela);
 
