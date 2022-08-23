@@ -22,11 +22,6 @@ public class CalculatorStep extends Run {
 
     @Quando("eu clico em {int}")
     public void eu_clico_na_caixa_de_escrever_digitando(Integer input) throws InterruptedException {
-        /*
-        Scroll na pagina:
-            home.scrollPage("0","1000");
-
-         */
         home.clicarNoBotaoCalculadora(input);
     }
 

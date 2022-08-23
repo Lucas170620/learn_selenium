@@ -1,0 +1,19 @@
+/*
+     * campo select :
+     * metodo (String State){
+     * Select nome_select = new Select(driver.findElement(By algo("seletor"));
+     * nome_select.selecByVisibleText(state);
+     * }
+     * Add File no selenium :
+     * metodo_up_file(String path_file){
+     * driver.findElement(By.algo("nome_html)).sendKeys(pathFile);
+     *
+     * }
+     * achar input do tipo file no html
+     *
+*/
+/*
+        Scroll na pagina:
+            home.scrollPage("0","1000");
+
+*/
