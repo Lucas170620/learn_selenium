@@ -13,13 +13,13 @@ Funcionalidade: Realizar Contas
     E aperto enter
     Então aparece o resultado na tela 3002
 
-  Cenário: Subtrair 3 - 2
+  Cenário: Subtrair 3 - 5
     Dado que eu estou logado no site da calculadora
     Quando eu clico em 3
     E eu clico na operacao menos
-    E eu clico em 2
+    E eu clico em 5
     E aperto enter
-    Então aparece o resultado na tela 1
+    Então aparece o resultado na tela -2
 
   Cenário: Dividir 32 / 10
     Dado que eu estou logado no site da calculadora
