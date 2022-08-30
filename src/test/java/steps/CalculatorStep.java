@@ -25,7 +25,7 @@ public class CalculatorStep extends Run {
         home.clicarNoBotaoCalculadora(input);
     }
 
-    @Quando("eu clico na operacao {str}")
+    @Quando("eu clico na operacao (mais|menos|vezes|dividir)$")
     public void eu_clico_em(String op) {
         switch (op){
             case "mais":
